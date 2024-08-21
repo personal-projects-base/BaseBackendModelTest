@@ -1,4 +1,6 @@
-﻿namespace Base_Backend.Repository
+﻿using System.Collections.Generic;
+
+namespace Base_Backend.Repository
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {

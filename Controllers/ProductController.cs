@@ -1,37 +1,28 @@
-﻿using Base_Backend.Config.Database;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using Base_Backend.Config.Database;
+using Base_Backend.Gen;
 using Base_Backend.Model;
 using Base_Backend.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Base_Backend.Controllers
 {
-    [Serializable]
-    [ApiController]
-    [Route("v1/products")]
-    public class ProductController : ControllerBase
+
+    public class ProductController : ProductHandler
     {
-
-        private readonly IProductRepository _productRepository;
-
-        public ProductController(IProductRepository productRepository)
-        {
-            _productRepository = productRepository;
-        }
-
-        [AcceptVerbs("GET")]
-        [Route("GetAll")]
-        public ActionResult<List<ProductEntity>> GetAll()
+        public ProductController(IProductRepository productRepository) : base(productRepository) { }
+        
+        public override ActionResult<List<ProductEntity>> GetAll()
         {
             var products = _productRepository.GetAll();
             return Ok(products);
         }
-
-
-        [AcceptVerbs("POST")]
-        [Route("Save")]
-        public ActionResult<ProductEntity> Save([FromBody ]ProductEntity product)
+        
+        public override ActionResult<ProductEntity> Save([FromBody]ProductEntity product)
         {
-            if (product.Id == null)
+            if (product.Id == 0)
             {
                 product =  _productRepository.Add(product);
             }
@@ -43,10 +34,8 @@ namespace Base_Backend.Controllers
             
             return Ok(product);
         }
-
-        [AcceptVerbs("GET")]
-        [Route("GetConsulting")]
-        public ActionResult<ProductEntity> GetConsulting()
+        
+        public override ActionResult<ProductEntity> GetConsulting()
         {
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
             return Ok(_productRepository.FindPrice());

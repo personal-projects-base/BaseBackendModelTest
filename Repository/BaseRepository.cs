@@ -1,4 +1,5 @@
 ﻿using Base_Backend.Config.Database;
+using Base_Backend.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace Base_Backend.Repository
@@ -56,7 +57,7 @@ namespace Base_Backend.Repository
         {
             try
             {
-                var objDB = _context.Set<TEntity>().Find(id);
+                _context.Attach(obj);
                 _context.Entry(obj).State = EntityState.Modified;
                 _context.SaveChanges();
                 return obj;
