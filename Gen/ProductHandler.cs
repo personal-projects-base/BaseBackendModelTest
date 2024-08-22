@@ -24,8 +24,5 @@ public abstract class ProductHandler : ControllerBase
     [AcceptVerbs("POST")]
     [Route("Save")]
     public abstract ActionResult<ProductEntity> Save([FromBody] ProductEntity product);
-
-    [AcceptVerbs("GET")]
-    [Route("GetConsulting")]
-    public abstract ActionResult<ProductEntity> GetConsulting();
+    
 }

@@ -12,6 +12,8 @@ namespace Base_Backend.Config.Scoped
         public static void AddScoped(WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
+            builder.Services.AddScoped<IPaisRepository, PaisRepository>();
         }
 
 

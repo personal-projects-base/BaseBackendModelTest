@@ -23,5 +23,7 @@ namespace Base_Backend.Config.Database
         }
         
         public DbSet<ProductEntity> ProductContext { get; set; }
+        public DbSet<PaisEntity> PaisContext { get; set; }
+        public DbSet<EstadoEntity> EstadoContext { get; set; }
     }
 }
