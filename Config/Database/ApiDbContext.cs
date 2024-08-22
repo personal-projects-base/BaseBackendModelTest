@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Base_Backend.Config.Database
 {
-    public class ApiDbContext : IdentityDbContext
+    public class ApiDbContext : DbContext
     {
-        
+        private string Schema;
         public ApiDbContext(){}
 
-        private string Schema;
+        
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
             Schema = "";
