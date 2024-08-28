@@ -11,7 +11,7 @@ public class EstadoEntity
     [Column(name:"id")]
     public int Id { get; set; }
     [Column(name: "name")]
-    public string Name { get; set; }
+    public String Name { get; set; }
     
     [IgnoreDataMember]
     [Column(name: "id_country")]

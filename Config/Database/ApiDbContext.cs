@@ -1,29 +1,17 @@
-﻿using Base_Backend.Model;
+﻿using Base_Backend.Gen;
+using Base_Backend.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Base_Backend.Config.Database
 {
-    public class ApiDbContext : DbContext
+    public class ApiDbContext : CustomDbContext
     {
-        private string Schema;
-        public ApiDbContext(){}
 
+        public ApiDbContext(){}
         
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
-            Schema = "";
         }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.HasDefaultSchema($"public{Schema}");
-        }
-        
-        public DbSet<ProductEntity> ProductContext { get; set; }
-        public DbSet<PaisEntity> PaisContext { get; set; }
-        public DbSet<EstadoEntity> EstadoContext { get; set; }
     }
 }

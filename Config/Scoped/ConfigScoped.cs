@@ -14,6 +14,7 @@ namespace Base_Backend.Config.Scoped
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
             builder.Services.AddScoped<IPaisRepository, PaisRepository>();
+            builder.Services.AddScoped<ICidadeRepository, CidadeRepository>();
         }
 
 

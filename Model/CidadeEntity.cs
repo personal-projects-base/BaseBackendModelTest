@@ -12,9 +12,9 @@ public class CidadeEntity
     public int Id { get; set; }
     [Column(name: "name")]
     public string Name { get; set; }
-    [IgnoreDataMember]
-    [Column(name: "id_state")]
-    public int StateId { get; set; }
     
-    public virtual EstadoEntity EstadoEntity { get; set; }
+    [Column(name: "country")]
+    [ForeignKey("id_state")]
+    public virtual PaisEntity Country { get; set; }
+    
 }

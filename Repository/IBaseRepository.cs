@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Base_Backend.Repository
 {
     public interface IBaseRepository<TEntity> where TEntity : class
