@@ -1,5 +1,6 @@
 using Base_Backend.Config.Database;
 using Base_Backend.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Base_Backend.Repository;
 
@@ -38,7 +39,9 @@ public class CidadeRepository : ICidadeRepository
 
     public IEnumerable<CidadeEntity> GetAll()
     {
-        throw new NotImplementedException();
+        string order = "name";
+
+        return _context.CidadeContext.Include(c => c.Country).Skip((1-1) * 10).Take(10).ToList();
     }
 
     public CidadeEntity Update(int id, CidadeEntity obj)

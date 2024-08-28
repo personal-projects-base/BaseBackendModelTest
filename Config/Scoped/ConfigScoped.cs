@@ -8,15 +8,7 @@ namespace Base_Backend.Config.Scoped
 {
     public class ConfigScoped
     {
-
-        public static void AddScoped(WebApplicationBuilder builder)
-        {
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
-            builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
-            builder.Services.AddScoped<IPaisRepository, PaisRepository>();
-            builder.Services.AddScoped<ICidadeRepository, CidadeRepository>();
-        }
-
+        
 
         public static void AddSecurity(WebApplicationBuilder builder)
         {

@@ -15,6 +15,6 @@ public class CidadeEntity
     
     [Column(name: "country")]
     [ForeignKey("id_state")]
-    public virtual PaisEntity Country { get; set; }
+    public virtual PaisEntity? Country { get; set; }
     
 }

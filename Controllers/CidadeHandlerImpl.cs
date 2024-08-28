@@ -13,7 +13,8 @@ public class CidadeHandlerImpl : CidadeHandler
 
     public override ActionResult<List<CidadeEntity>> GetAll()
     {
-        throw new NotImplementedException();
+        var obj = _cidadeRepository.GetAll();
+        return Ok(obj);
     }
 
     public override ActionResult<CidadeEntity> Save(CidadeEntity city)
