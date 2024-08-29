@@ -16,11 +16,15 @@ public abstract class CidadeHandler : ControllerBase
         _cidadeRepository = cidadeRepository;
     }
     
-    [AcceptVerbs("GET")]
-    [Route("GetAll")]
-    public abstract ActionResult<List<CidadeEntity>> GetAll();
+    [HttpGet]
+    public abstract ActionResult<List<CidadeEntity>> Cidade();
 
-    [AcceptVerbs("POST")]
-    [Route("Save")]
-    public abstract ActionResult<CidadeEntity> Save([FromBody] CidadeEntity city);
+    [HttpPost]
+    public abstract ActionResult<CidadeEntity> Cidade([FromBody] CidadeEntity city);
+    
+    [HttpPut("{id}")]
+    public abstract ActionResult<CidadeEntity> Cidade(int id, [FromBody] CidadeEntity city);
+    
+    [HttpDelete("{id}")]
+    public abstract ActionResult<CidadeEntity> Cidade(int id);
 }
