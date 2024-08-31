@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.InteropServices.JavaScript;
 using System.Runtime.Serialization;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
@@ -19,4 +20,5 @@ public class EstadoEntity
     public int CountryId { get; set; }
     
     public virtual PaisEntity? Pais { get; set; }
+    
 }
